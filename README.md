@@ -1,10 +1,24 @@
 # webapp
-This Webapp is used to perform healthcheck and create instance in google cloud
-Description
+This Webapp GO application is used to perform healthcheck for the instances and create instance in google cloud
 
+ 
 WEBAPP
+--------
+
+How to call the application in the browser
+------------------------------------------
+35.190.153.57:9090/healthcheck ----------->Through GET method Implements a basic health check, returning HTTP status code 200 and a blank page.
+
+35.190.153.57:9090/                ------> After entering the username and password displays ipaddres of the created instance and url will change to 35.190.153.57:9090/v1/instances/create
+The username and password is validation in javascript
+
+Since this is a public ipaddress the if the go application is stopped the public address will change. And so the webapp.go is kept running
+
+
+
 
 Installation
+-------------
 
 Install go with the below commands
 
@@ -112,8 +126,8 @@ Healtcheck function describes the healthcheck test1
 
 func healthcheck(w http.ResponseWriter, r *http.Request) {
     fmt.Println("inside healcheck method method:", r.Method) //get request method
-    if r.Method == "GET" {
-    out1, err2 := exec.Command("bash", "-c", "gcloud compute health-checks describe testing1").Output()
+    if r.Method == "GET" {  //checking for the GET 
+    out1, err2 := exec.Command("bash", "-c", "gcloud compute health-checks describe testing1").Output() //executing the command
         if err2 != nil {
                 log.Fatal(err2)
             }
@@ -137,6 +151,41 @@ func main() {
 }
  
 -------------------------------------------------------------- 
+
+Index.html
+------------
+
+<html>
+    <head>
+<script>
+function validateForm() {
+    var x3 = document.forms["myform"]["username"].value;
+    if (x3 == "") {
+        alert("Please enter  Username  ");
+        return false;
+    }
+    var x4 = document.forms["myform"]["password"].value;
+    if (x4 == "") {
+        alert("Please enter Password");
+        return false;
+    }
+}
+</script>
+    <title></title>
+    </head>
+    <body>
+        <h1 align="center"> Crealytics GmbH </h1>
+        <form  name="myform" action="/v1/instances/create" method="post" onsubmit="return validateForm();">
+ Username:<input type="text" name="username">
+            Password:<input type="password" name="password">
+        <input type="submit" name="action2"  value="Create Instance">
+</form>
+    </body>
+</html>
+
+
+
+
 Author
 -------
 
