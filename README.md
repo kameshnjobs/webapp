@@ -137,11 +137,15 @@ func main() {
 }
  
 -------------------------------------------------------------- 
-Authors
+Author
+-------
 
-Kamesh Narayanababu
- 
+
+Name: Kamesh Narayanababu
+Email: kameshnjobs@gmail.com
+
  
 License
+--------
 
 Free License
