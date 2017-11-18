@@ -59,7 +59,7 @@ Copy index.html  in the /home/<username home directory>
   
 Webapp.go code
 
-package main
+Packges which needs to be imported
 import (
     "fmt"
     "html/template"
@@ -69,6 +69,9 @@ import (
     "strings"
     "time"
 )
+
+Create Function parses index.html and POST method takes the username, current time and creates instances
+----------------------------------------------------------------------------------------------------------
 
 func create(w http.ResponseWriter, r *http.Request) {
     fmt.Println("Inside create method:", r.Method) //get request method
@@ -102,6 +105,11 @@ func create(w http.ResponseWriter, r *http.Request) {
         }
 
 }
+
+Healtcheck function describes the healthcheck test1
+---------------------------------------------------
+
+
 func healthcheck(w http.ResponseWriter, r *http.Request) {
     fmt.Println("inside healcheck method method:", r.Method) //get request method
     if r.Method == "GET" {
@@ -114,6 +122,10 @@ func healthcheck(w http.ResponseWriter, r *http.Request) {
         fmt.Printf("The output is %s\n", out1)
     }
 }
+
+
+main function sets the routing rule and calls the create function and healthcheck 
+---------------------------------------------------------------------------------
 func main() {
     http.HandleFunc("/",create) // setting router rule
     http.HandleFunc("/healthcheck",healthcheck)
@@ -124,12 +136,7 @@ func main() {
     }
 }
  
- 
- 
-If you discover any bugs, feel free to create an issue on GitHub fork and send us a pull request.
-
-[Issues List](Github Issues List URL goes here).
-
+-------------------------------------------------------------- 
 Authors
 
 Kamesh Narayanababu
