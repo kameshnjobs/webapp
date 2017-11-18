@@ -168,6 +168,6 @@ License
 Free License
 
 
-GITHU link
+GITHUB link
 ----------
 https://github.com/kameshnjobs/webapp.git
