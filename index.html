@@ -1,0 +1,29 @@
+
+<html>
+    <head>
+<script>
+function validateForm() {
+    var x3 = document.forms["myform"]["username"].value;
+    if (x3 == "") {
+        alert("Please enter  Username  ");
+        return false;
+    }
+    var x4 = document.forms["myform"]["password"].value;
+    if (x4 == "") {
+        alert("Please enter Password");
+        return false;
+    }
+}
+</script>
+    <title></title>
+    </head>
+    <body>
+        <h1 align="center"> Crealytics GmbH </h1>
+        <form  name="myform" action="/v1/instances/create" method="post" onsubmit="return validateForm();">
+ Username:<input type="text" name="username">
+            Password:<input type="password" name="password">
+        <input type="submit" name="action2"  value="Create Instance">
+</form>
+    </body>
+</html>
+                  
