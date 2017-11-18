@@ -46,8 +46,8 @@ Now also verify all configured environment variables using following command.
 
 # go env
 
+----------------------
 
-=======================================================================================================
 Copying the webapp.go
 ---------------------
 
@@ -55,6 +55,8 @@ Copy the webapp.go in the /home/<username home directory>
 Copy index.html  in the /home/<username home directory>
  
  
+ 
+  
 Webapp.go code
 
 package main
@@ -80,8 +82,7 @@ func create(w http.ResponseWriter, r *http.Request) {
         // logic part of log in
         fmt.Println("username:", r.Form["username"])
         fmt.Println("password:", r.Form["password"])
- 
-         name := strings.ToLower(r.PostFormValue("username"))
+        name := strings.ToLower(r.PostFormValue("username"))
         tt := time.Now()
         fmt.Println(tt.Format("20060102150405"))
         kk := tt.Format("20060102150405")
@@ -114,19 +115,17 @@ func healthcheck(w http.ResponseWriter, r *http.Request) {
     }
 }
 func main() {
-
     http.HandleFunc("/",create) // setting router rule
     http.HandleFunc("/healthcheck",healthcheck)
- 
     err := http.ListenAndServe(":9090", nil) // setting listening port
     // setting listening port
     if err != nil {
         log.Fatal("ListenAndServe: ", err)
     }
 }
-
  
-
+ 
+ 
 If you discover any bugs, feel free to create an issue on GitHub fork and send us a pull request.
 
 [Issues List](Github Issues List URL goes here).
