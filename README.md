@@ -154,7 +154,7 @@ func main() {
 
 Index.html
 ------------
-
+<!--
 <html>
     <head>
 <script>
@@ -183,7 +183,7 @@ function validateForm() {
     </body>
 </html>
 
-
+--->
 
 
 Author
